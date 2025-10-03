@@ -1,4 +1,44 @@
-.vscode/settings.json
+# TheWord Tools (instalados automaticamente)
+tools/
+
+# Arquivos de trabalho temporários
+edit-verses.txt
+edit-notes.txt
+merged.txt
+*-old.txt
+
+# Backups automáticos
+backup*/
+*.backup
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+*~
+
+# Cache
+cache/
+.cache/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-*
+
+# Preview HTML gerados
+preview*.html
+*.preview.html
+
+# Configurações locais
+config/
+tools/config/current_project.conf
+tools/config/local.conf/settings.json
 edit-*.txt
 input-*.txt
 merged.txt

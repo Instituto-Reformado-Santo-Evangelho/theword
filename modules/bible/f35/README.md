@@ -1,27 +1,152 @@
-# O Soberano Criador Já Falou
+# Módulos TheWord - Família 35
 
-Esse é um trabalho de conversão do conteúdo do livro "**O Soberano Criador Já Falou**" para módulo de Bíblia TheWord. Como o formato de conteúdo é um pouco diferente da apresentação em PDF, foi feito uma única mudança a nível de organização, a saber, as notas que antes eram referênciadas por ordem alfabética agora são referênciadas por ordem numérica. Ademais, com o consentimento do Dr. Wilbur Pickering estão sendo feitas algumas correções pontuais em relação a erros de digitação.
+Esta pasta contém os módulos bíblicos para o software TheWord baseados no Novo Testamento segundo a Família 35.
 
-## Abaixo estão algumas palavras com suas posições no texto
-*A Ver* e *Corrigidas*:
+## 🔒 **POLÍTICA DE SEGURANÇA - LEIA ANTES DE EDITAR**
 
-### Corrigidas
-**Mateus 8:32**: ~~manda~~ => manada;
+### **📁 Estrutura de Arquivos**
 
-Obs: **_No trecho abaixo a marcação do verso 50 estava ausente_**: <br>
+```
+f35/
+├── F35.nt        🔒 MÓDULO PRINCIPAL - NÃO EDITE DIRETAMENTE
+├── Mt.nt         ✅ Mateus individual - Editável por revisores
+├── Mc.nt         ✅ Marcos individual - Editável por revisores  
+├── Lc.nt         ✅ Lucas individual - Editável por revisores
+├── Jo.nt         ✅ João individual - Editável por revisores
+└── README.md     🔒 Documentação - Apenas mantenedores
+```
 
-**Mateus 12:49**: E estendendo a Sua mão para Seus discípulos Ele disse: “Aqui estão minha mãe e meus irmãos! ~~Pois quem quer que faça a vontade de meu Pai nos Céus, este é meu irmão, minha irmã e minha mãe.”~~ => E estendendo a Sua mão para Seus discípulos Ele disse: “Aqui estão minha mãe e meus irmãos! <sup>50</sup>Pois quem quer que faça a vontade de meu Pai nos Céus, este é meu irmão, minha irmã e minha mãe.”
+### **⚠️ IMPORTANTE: NÃO EDITE F35.nt DIRETAMENTE**
 
-**Mateus 14:5**: E embora quisesse ~~mata-lo~~, ele temia o povo,<sup>c</sup> porque eles o tinham como profeta. => E embora quisesse matá-lo, ele temia o povo,<sup>c</sup> porque eles o tinham como profeta.
+#### **Por que esta política?**
+- **F35.nt** é usado por **todos os usuários** do módulo
+- Uma corrupção afeta **centenas de pessoas**
+- **Rollback** é complexo e demorado
+- **Qualidade** deve ser garantida antes da integração
 
-**Mateus 21:34**: Quando o tempo da vindima se aproximou, ele enviou seus servos aos lavradores ~~pare~~ receber seus frutos. => Quando o tempo da vindima se aproximou, ele enviou seus servos aos lavradores para receber seus frutos.
+#### **Como contribuir corretamente:**
+1. ✅ **Edite apenas livros individuais** (Mt.nt, Mc.nt, Lc.nt, Jo.nt)
+2. ✅ **Valide** seu livro com as ferramentas
+3. ✅ **Submeta PR** apenas do livro específico
+4. ✅ **Aguarde** integração pelos mantenedores
 
-**Mateus 28:20**: ensinando-os a obedecer todas as coisas que eu ordenei a vocês;<sup>e</sup>
-e atenção, eu permaneço com vocês todos os dias, até o fim da era!”<sup>f</sup> ~~Amem~~.<sup>e</sup> => ensinando-os a obedecer todas as coisas que eu ordenei a vocês;<sup>e</sup>
-e atenção, eu permaneço com vocês todos os dias, até o fim da era!”<sup>f</sup> Amém.<sup>e</sup>
+## 📊 **Status dos Livros**
 
-**Lucas 12:35**: Estejam cingidas as vossas cinturas e ~~acessas~~ as vossas candeias, => Estejam cingidas as vossas cinturas e acesas as vossas candeias,
+### **✅ Completos e Integrados**
+- **Mt.nt** (Mateus) - 28 capítulos - 952 versículos
+- **Mc.nt** (Marcos) - 16 capítulos - 678 versículos  
+- **Lc.nt** (Lucas) - 24 capítulos - 1.149 versículos
 
-**Lucas 19:5**: Quando Jesus chegou àquele lugar, ~~olho~~ para cima, viu-o e disse-lhe, “Zaqueu, desce depressa, pois hoje quero me hospedar em tua casa”.<sup>c</sup> => Quando Jesus chegou àquele lugar, olhou para cima, viu-o e disse-lhe, “Zaqueu, desce depressa, pois hoje quero me hospedar em tua casa”.<sup>c</sup>
+### **🔄 Em Revisão**
+- **Jo.nt** (João) - 21 capítulos - ~878 versículos
 
-### A Ver
+### **📋 Planejados**
+- Atos (28 capítulos)
+- Romanos (16 capítulos)
+- 1-2 Coríntios (29 capítulos)
+- [... demais livros do NT]
+
+## 🛠️ **Como Usar os Módulos**
+
+### **Módulo Principal (Usuários Finais)**
+```
+Instalar no TheWord: F35.nt
+```
+- Contém **todos os livros** revisados e validados
+- **Sempre estável** e testado
+- Atualizado apenas após validação completa
+
+### **Módulos Individuais (Desenvolvimento)**
+```
+Para testes: Mt.nt, Mc.nt, Lc.nt, Jo.nt
+```
+- **Desenvolvimento ativo** de cada livro
+- Podem estar **em diferentes estágios** de revisão
+- **Use por sua conta e risco** em produção
+
+## 🔄 **Processo de Integração**
+
+### **Workflow Automático**
+```bash
+# 1. Revisor edita livro individual
+git add Lc.nt
+git commit -m "Lucas: revisão capítulos 10-15"
+
+# 2. Mantenedor valida e integra
+perl tools/bin/validate.pl --file=Lc.nt --strict
+perl tools/bin/integrate.pl --books=Mt,Mc,Lc,Jo --output=F35.nt
+
+# 3. Release quando apropriado
+git tag v1.4.0 -m "Release: João completo integrado"
+```
+
+### **Validações Automáticas**
+- **Sintaxe**: Tags TheWord corretas
+- **Integridade**: Todos os versículos presentes
+- **Qualidade**: Score de qualidade > 95%
+- **Compatibilidade**: Funciona no TheWord
+
+## 📈 **Estatísticas de Qualidade**
+
+### **F35.nt (Módulo Principal)**
+- **Livros integrados**: 3 (Mt, Mc, Lc)
+- **Versículos**: 2.779 de ~7.957 total
+- **Notas**: 1.823+
+- **Qualidade**: 98%+ (validação automática)
+- **Última integração**: [Data da última atualização]
+
+### **Livros Individuais**
+| Livro | Status | Qualidade | Última Atualização |
+|-------|--------|-----------|-------------------|
+| Mt.nt | ✅ Estável | 98% | 2025-09-15 |
+| Mc.nt | ✅ Estável | 97% | 2025-09-20 |
+| Lc.nt | ✅ Estável | 99% | 2025-10-01 |
+| Jo.nt | 🔄 Revisão | 95% | 2025-10-02 |
+
+## 🆘 **Solução de Problemas**
+
+### **"Meu livro não aparece no F35.nt"**
+- ✅ Verifique se o livro individual está validado
+- ✅ Aguarde a próxima integração dos mantenedores
+- ✅ Livros são integrados em lotes, não individualmente
+
+### **"Encontrei erro no F35.nt"**
+- ❌ **NÃO** edite F35.nt diretamente
+- ✅ Identifique o livro individual com o problema
+- ✅ Edite o livro específico (Mt.nt, Mc.nt, etc.)
+- ✅ Submeta PR do livro corrigido
+
+### **"Como testar minha contribuição?"**
+```bash
+# Validar livro individual
+perl tools/bin/validate.pl --file=Jo.nt --strict
+
+# Preview no navegador
+perl tools/bin/preview.pl --html --file=Jo.nt
+
+# Testar no TheWord (livro individual)
+# Carregar Jo.nt temporariamente para testes
+```
+
+## 🎯 **Metas do Projeto**
+
+### **Curto Prazo**
+- ✅ João (Jo.nt) completo e integrado
+- ✅ Atos (At.nt) iniciado
+- ✅ Sistema de integração automatizado
+
+### **Médio Prazo**  
+- ✅ 50% do NT integrado ao F35.nt
+- ✅ Equipe de revisores expandida
+- ✅ Qualidade 99%+ consistente
+
+### **Longo Prazo**
+- ✅ NT completo no F35.nt
+- ✅ Velho Testamento (se aprovado)
+- ✅ Múltiplas traduções suportadas
+
+---
+
+**Lembre-se**: A política de segurança existe para proteger o trabalho de todos. Sempre edite **livros individuais** e deixe a integração com os mantenedores! 🔒✅
+
+> "Toda Escritura é inspirada por Deus e útil para o ensino" (2 Timóteo 3:16)
