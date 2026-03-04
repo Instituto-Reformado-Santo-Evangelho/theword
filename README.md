@@ -118,13 +118,6 @@ modules/bible/f35/
 
 Este projeto visa a preservação e disseminação da Palavra de Deus. O uso é livre para fins educacionais, ministeriais e pessoais.
 
-## 🙏 **Agradecimentos**
-
-- **Dr. Wilbur Norman Pickering**: Pela excelente tradução
-- **Equipe IRSE**: Pela digitalização e revisão
-- **Comunidade TheWord**: Pelo software e suporte
-- **Contribuidores**: Todos os revisores e editores voluntários
-
 ---
 
 > "Seca-se a erva, e cai a flor, porém a palavra de nosso Deus subsiste eternamente" (Isaías 40.8)

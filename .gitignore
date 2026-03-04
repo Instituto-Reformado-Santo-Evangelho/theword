@@ -1,6 +1,3 @@
-# TheWord Tools (instalados automaticamente)
-tools/
-
 # Arquivos de trabalho temporários
 edit-verses.txt
 edit-notes.txt
@@ -36,9 +33,6 @@ preview*.html
 *.preview.html
 
 # Configurações locais
-config/
-tools/config/current_project.conf
-tools/config/local.conf/settings.json
 edit-*.txt
 input-*.txt
 merged.txt
