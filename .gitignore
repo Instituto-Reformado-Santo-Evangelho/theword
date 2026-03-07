@@ -5,7 +5,7 @@ merged.txt
 *-old.txt
 
 # Backups automáticos
-backup*/
+backup/*
 *.backup
 
 # Logs
